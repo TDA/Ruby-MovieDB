@@ -8,8 +8,17 @@
 Hello, this is a movies list.
 <ul>
   <!--Access the values as usual, but inside
-  of embedded tags -->
+  of output embedded tags -->
   <li><%= @movie.title %></li>
+  <!--These are regular embedded tags, they dont output anything -->
+  <% unless @movie.title.nil? %>
+    <li>This will be output</li>
+  <% end %>
+
+  <!--combine both for max effect :D-->
+  <% unless @movie.title.nil? %>
+      <li><%= @movie.title %></li>
+  <% end %>
 </ul>
 </body>
 </html>
