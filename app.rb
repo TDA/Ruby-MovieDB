@@ -11,6 +11,17 @@ get('/movies') do
   @movie.title = 'TDKR'
   @movie.director = 'Chris Nolan'
   @movie.year = '2008'
+
+  @movies = []
+  @movies.push(@movie)
+  @movie2 = Movie.new
+  @movie2.title = 'HHVM'
+  @movies << @movie2
   # cant seem to call multiple files, will need to figure out how
   erb :index
+end
+
+get('/movies/new') do
+  # calls ./views/new.erb
+  erb :new
 end

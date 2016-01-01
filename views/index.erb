@@ -19,6 +19,12 @@ Hello, this is a movies list.
   <% unless @movie.title.nil? %>
       <li><%= @movie.title %></li>
   <% end %>
+
+  <% @movies.each do |movie| %>
+      <li><%= movie.title %></li>
+  <% end %>
+
 </ul>
+<a href="/movies/new">Add a Movie</a>
 </body>
 </html>
