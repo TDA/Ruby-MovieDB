@@ -14,3 +14,13 @@
   director: Sai
   year: '1993'
   id: 3
+4: !ruby/object:Movie
+  title: TDKR
+  director: Chris Nolan
+  year: '2008'
+  id: 4
+5: !ruby/object:Movie
+  title: Haha
+  director: Sai
+  year: '2015'
+  id: 5

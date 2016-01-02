@@ -8,16 +8,14 @@ get('/movies') do
   request.env.each { |item, value| puts "#{item } : #{value }"}
   # by storing these as instance variables they will be
   # available in the erb files as well
-  @movie = Movie.new
-  @movie.title = 'TDKR'
-  @movie.director = 'Chris Nolan'
-  @movie.year = '2008'
 
-  @movies = []
-  @movies.push(@movie)
-  @movie2 = Movie.new
-  @movie2.title = 'HHVM'
-  @movies << @movie2
+  # lets create a yaml store
+  @store = MovieStoreYAML.new('./mvstore.yml')
+
+  # get all the movies in store, print em out in erb
+  @movies = @store.get_movies
+  # just to not break the existing erb, not needed otherwise
+  @movie = @movies[3]
   # cant seem to call multiple files, will need to figure out how
   erb :index
 end
@@ -31,6 +29,7 @@ end
 post('/movies/create') do
   # lets create a yaml store
   @store = MovieStoreYAML.new('./mvstore.yml')
+
   # params has all the params :\
   puts "Received this: #{params.inspect}"
   @movie = Movie.new

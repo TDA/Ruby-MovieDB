@@ -1,5 +1,5 @@
 require 'yaml/store'
-require './movie'
+#require './movie'
 
 class MovieStoreYAML
   attr_accessor :store

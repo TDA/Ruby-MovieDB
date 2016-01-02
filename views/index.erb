@@ -21,7 +21,8 @@ Hello, this is a movies list.
   <% end %>
 
   <% @movies.each do |movie| %>
-      <li><%= movie.title %></li>
+      <!--I would actually do this like so, /movies?id=id, but lets try this out-->
+      <li><a href="/movies/<%= movie.id %>"><%= movie.title %></a></li>
   <% end %>
 
 </ul>
