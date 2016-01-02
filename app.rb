@@ -25,3 +25,16 @@ get('/movies/new') do
   # calls ./views/new.erb
   erb :new
 end
+
+# lets create a page to store the details
+post('/movies/create') do
+  # params has all the params :\
+  "Received this: #{params.inspect}"
+  @movie = Movie.new
+  params.each do |key, value|
+    # need the @#{key} cuz we are setting the title etc as @title = value
+    # this is called metaprogramming i guess
+    @movie.instance_variable_set("@#{key}", value)
+  end
+  "Received this: #{@movie.inspect}"
+end
