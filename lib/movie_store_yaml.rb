@@ -1,5 +1,5 @@
 require 'yaml/store'
-#require './movie'
+# require './movie'
 
 class MovieStoreYAML
   attr_accessor :store
@@ -48,5 +48,5 @@ end
 if __FILE__ == $0
   store = MovieStoreYAML.new('../mvstore.yml')
   p store
-  p store.get_movie(2)
+  p store.get_movie('2'.to_i)
 end

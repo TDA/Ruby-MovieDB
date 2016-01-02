@@ -24,3 +24,8 @@
   director: Sai
   year: '2015'
   id: 5
+6: !ruby/object:Movie
+  title: Appa
+  director: Amma
+  year: '1959'
+  id: 6

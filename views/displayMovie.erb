@@ -5,12 +5,12 @@
   <title>Movie Details - <%= @movie.title %></title>
 </head>
 <body>
-  <li><%= @movie.title %></li>
+  <li>Title: <%= @movie.title %></li>
   <!--These are regular embedded tags, they dont output anything -->
-
   <li>Director: <%= @movie.director %></a></li>
+  <li>Year: <%= @movie.year %></a></li>
 
 </ul>
-<a href="/movies/index">Back to index</a>
+<a href="/movies">Back to index</a>
 </body>
 </html>

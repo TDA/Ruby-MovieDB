@@ -51,7 +51,12 @@ get('/movies/:id') do
   # lets create a yaml store
   @store = MovieStoreYAML.new('./mvstore.yml')
   "Got Movie #{params['id']}"
-  @movie = @store.get_movie(params['id'])
-  # now call an erb to display this movie
-  erb :displayMovie
+  # id stored as integed/fixnum, so convert to int
+  @movie = @store.get_movie(params['id'].to_i)
+  if @movie.nil?
+    redirect '/movies'
+  else
+    # now call an erb to display this movie
+    erb :displayMovie
+  end
 end
