@@ -28,6 +28,7 @@ end
 
 # lets create a page to store the details
 post('/movies/create') do
+  # lets create a yaml store
   # params has all the params :\
   "Received this: #{params.inspect}"
   @movie = Movie.new
@@ -36,5 +37,6 @@ post('/movies/create') do
     # this is called metaprogramming i guess
     @movie.instance_variable_set("@#{key}", value)
   end
+  #@movie now contains all necessary data
   "Received this: #{@movie.inspect}"
 end
