@@ -9,6 +9,15 @@
   <!--These are regular embedded tags, they dont output anything -->
   <li>Director: <%= @movie.director %></a></li>
   <li>Year: <%= @movie.year %></a></li>
+  <% if @movie.year.to_i.between?(1990, 2000) %>
+    <li>90's</li>
+  <% elsif @movie.year.to_i.between?(2000, 2010) %>
+    <li>2000's</li>
+  <% elsif @movie.year.to_i >= 2010 %>
+    <li>Super NEW!</li>
+  <% else%>
+    <li>Kinda Old!</li>
+  <% end %>
 
 </ul>
 <a href="/movies">Back to index</a>
