@@ -9,3 +9,8 @@
   director: Sai
   year: '1993'
   id: 2
+3: !ruby/object:Movie
+  title: Sai
+  director: Sai
+  year: '1993'
+  id: 3

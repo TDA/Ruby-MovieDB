@@ -39,7 +39,9 @@ post('/movies/create') do
     # this is called metaprogramming i guess
     @movie.instance_variable_set("@#{key}", value)
   end
-  #@movie now contains all necessary data
+  #@movie now contains all necessary data except id
   @store.save_movie(@movie)
   "Received this: #{@movie.inspect}"
+  # lets redirect to same page
+  redirect('/movies/new')
 end
