@@ -1,5 +1,4 @@
 require 'yaml/store'
-require './movie'
 
 class MovieStoreYAML
   attr_accessor :store
@@ -14,6 +13,7 @@ class MovieStoreYAML
       unless movie.id
         # movie.id doesnt exist, so retrieve highest (or 0 is
         # store empty), and then add 1 to it, and store
+        # roots gives all the keys stored in the file in an array
         highest_id_in_store = @store.roots.max || 0
         movie.id = highest_id_in_store + 1
       end

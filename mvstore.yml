@@ -1,0 +1,11 @@
+---
+1: !ruby/object:Movie
+  title: Sai
+  director: Sai
+  year: '1993'
+  id: 1
+2: !ruby/object:Movie
+  title: Sai
+  director: Sai
+  year: '1993'
+  id: 2

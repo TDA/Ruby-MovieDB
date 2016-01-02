@@ -1,5 +1,6 @@
 require 'sinatra'
 require './lib/movie'
+require './lib/movie_store_yaml'
 
 get('/movies') do
   # call erb with the symbol corresponding to ./views/xyz.erb
@@ -29,8 +30,9 @@ end
 # lets create a page to store the details
 post('/movies/create') do
   # lets create a yaml store
+  @store = MovieStoreYAML.new('./mvstore.yml')
   # params has all the params :\
-  "Received this: #{params.inspect}"
+  puts "Received this: #{params.inspect}"
   @movie = Movie.new
   params.each do |key, value|
     # need the @#{key} cuz we are setting the title etc as @title = value
@@ -38,5 +40,6 @@ post('/movies/create') do
     @movie.instance_variable_set("@#{key}", value)
   end
   #@movie now contains all necessary data
+  @store.save_movie(@movie)
   "Received this: #{@movie.inspect}"
 end
