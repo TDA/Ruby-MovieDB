@@ -44,3 +44,14 @@ post('/movies/create') do
   # lets redirect to same page
   redirect('/movies/new')
 end
+
+# named params sound cool, pretty similar
+# to regular params, but cooler :D
+get('/movies/:id') do
+  # lets create a yaml store
+  @store = MovieStoreYAML.new('./mvstore.yml')
+  "Got Movie #{params['id']}"
+  @movie = @store.get_movie(params['id'])
+  # now call an erb to display this movie
+  erb :displayMovie
+end
