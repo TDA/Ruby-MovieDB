@@ -34,11 +34,19 @@ class MovieStoreYAML
     end
   end
 
+  def get_movie(id)
+    @store.transaction do
+      unless store[id].nil?
+        return store[id]
+      end
+      return nil
+    end
+  end
 end
 
 # test this
 if __FILE__ == $0
   store = MovieStoreYAML.new('../mvstore.yml')
   p store
-  p store.get_movies
+  p store.get_movie(2)
 end
